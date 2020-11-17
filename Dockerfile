@@ -18,6 +18,15 @@ COPY package-lock.json .
 RUN npm install
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 RUN yum install ./google-chrome-stable_current_*.rpm -y
+
+RUN yum install epel-release -y
+RUN yum localinstall --nogpgcheck https://download1.rpmfusion.org/free/el/rpmfusion-free-release-7.noarch.rpm -y
+RUN yum install ffmpeg ffmpeg-devel -y
+
+ENV DISPLAY=:
+
+RUN mkdir downloads
+
 COPY . .
 
 CMD [ "python", "youtube-video-converter.py" ]

@@ -1,5 +1,5 @@
 #!/bin/bash
-for f in ./downloads/*.mp4
+for f in /yotube-list-downloader/downloads/*.mp4
 do
     echo "Converting $f"
     name=`echo "$f" | sed -e "s/.mp4$//g"`
