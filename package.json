@@ -9,6 +9,7 @@
   "author": "Kareem-Elkasaby",
   "license": "ISC",
   "dependencies": {
-    "youtube-dl": "^3.0.2"
+    "youtube-dl": "^3.0.2",
+    "youtube-dl-progress": "^1.13.3"
   }
 }

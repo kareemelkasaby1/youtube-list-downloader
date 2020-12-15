@@ -32,7 +32,6 @@ class TestPythonWebsite(unittest.TestCase):
         link = driver.current_url
         f.write(link)
         f.close()
-        print("Please take a rest and monitor your dist download folder")
         driver.execute_script('document.getElementsByTagName("video")[0].pause()')
         subprocess.check_call("./script.sh {convert}".format(convert=convert),shell=True)
         for i in range(0,int(listItemsNum)-1):
@@ -40,7 +39,6 @@ class TestPythonWebsite(unittest.TestCase):
             driver.execute_script("arguments[0].click();", nextBtn)
             slowNetwork = True
             link = driver.current_url
-            print(link)
             f = open("link.txt", "w")
             f.write(link)
             f.close()
