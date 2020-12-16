@@ -8,9 +8,11 @@ HP='\xF0\x9F\x98\x83'
 LINK=$(cat link.txt)
 if [ -z $2 ]
 then
-    printf "\n\n${YELLOW}Download video number ${RED}1${NC} ${HP}\n\n"
+    i=1
+    printf "\n\n${YELLOW}Downloading video number ${RED}1${NC} ${HP}\n\n"
 else
-    printf "\n\n${YELLOW}Download video number ${RED}$(($2+2))${NC} ${HP}\n\n"
+    i="$(($2+2))"
+    printf "\n\n${YELLOW}Downloading video number ${RED}$(($2+2))${NC} ${HP}\n\n"
 fi
 
 if ! [[ $LINK = *=+([[:digit:]]) ]] 2> /dev/null && ! [[ -z $2 ]]
@@ -21,16 +23,17 @@ then
     exit
 fi
 echo -e $BLUE
-node youtub-downloader.js $LINK | tee logfile.txt
+node youtub-downloader.js $LINK 2> logfile.txt
 echo -e $NC
 LAST=$(awk '/./{line=$0} END{print line}' logfile.txt)
-while [[ $LAST == \(node:* ]]
+# while [[ $LAST == \(node:* ]]
+while [ -s logfile.txt ]
 do
-    printf "\n\n${RED}Download faild ${SAD}\nRetry to download your next video${NC}\n\n"
+    printf "\n\n${RED}Download faild ${SAD}\nRetry downloading video number ${YELLOW}${i}${NC}\n\n"
     echo -e $BLUE
-    node youtub-downloader.js | tee logfile.txt
+    node youtub-downloader.js $LINK 2> logfile.txt
     echo -e $NC
-    LAST=$(awk '/./{line=$0} END{print line}' logfile.txt)
+    # LAST=$(awk '/./{line=$0} END{print line}' logfile.txt)
 done
 if [ $1 == "y" ] || [ $1 == "Y" ]
 then
