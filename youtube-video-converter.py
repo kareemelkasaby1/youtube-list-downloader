@@ -33,6 +33,7 @@ class TestPythonWebsite(unittest.TestCase):
         f.write(link)
         f.close()
         driver.execute_script('document.getElementsByTagName("video")[0].pause()')
+        subprocess.check_call("mkdir /yotube-list-downloader/downloads/downloads-youtube-playlist",shell=True)
         subprocess.check_call("./script.sh {convert}".format(convert=convert),shell=True)
         for i in range(0,int(listItemsNum)-1):
             nextBtn = driver.find_element_by_class_name("ytp-next-button")

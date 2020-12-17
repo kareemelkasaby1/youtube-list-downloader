@@ -38,6 +38,6 @@ done
 if [ $1 == "y" ] || [ $1 == "Y" ]
 then
     ./convertToMp3.sh
-    rm -f /yotube-list-downloader/downloads/*.mp4
+    rm -f /yotube-list-downloader/downloads/downloads-youtube-playlist/*.mp4
 fi
 > logfile.txt

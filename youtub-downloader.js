@@ -22,5 +22,5 @@ video.on('info', async function (info) {
     console.log('Download started')
     console.log('filename: ' + info._filename)
     console.log('size: ' + info.size)
-    video.pipe(fs.createWriteStream("/yotube-list-downloader/downloads/" + info._filename))
+    video.pipe(fs.createWriteStream("/yotube-list-downloader/downloads/downloads-youtube-playlist/" + info._filename))
 })

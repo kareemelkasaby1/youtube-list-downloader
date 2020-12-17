@@ -5,7 +5,7 @@ BLUE='\e[1;34m'
 GREEN='\e[1;32m'
 NC='\033[0m'
 HP='\xF0\x9F\x98\x83'
-for f in /yotube-list-downloader/downloads/*.mp4
+for f in /yotube-list-downloader/downloads/downloads-youtube-playlist/*.mp4
 do
     mp4File="$(echo $f | cut -f4 -d"/")"
     mp3File="$(echo $mp4File | cut -f1 -d".")"
