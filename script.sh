@@ -6,6 +6,7 @@ NC='\033[0m'
 SAD='\xF0\x9F\x98\x94'
 HP='\xF0\x9F\x98\x83'
 LINK=$(cat link.txt)
+echo $3
 if [ -z $2 ]
 then
     i=1
@@ -38,6 +39,9 @@ done
 if [ $1 == "y" ] || [ $1 == "Y" ]
 then
     ./convertToMp3.sh
-    rm -f /yotube-list-downloader/downloads/downloads-youtube-playlist/*.mp4
+    if  [ "$3" != "y" ] && [ "$3" != "Y" ] && [ ! -z $3 ]
+    then
+        rm -f /yotube-list-downloader/downloads/downloads-youtube-playlist/*.mp4
+    fi
 fi
 > logfile.txt
