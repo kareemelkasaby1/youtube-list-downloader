@@ -31,15 +31,26 @@ docker --version
 sudo docker --version
 ```
 you only need to run these command and replace
-`$the absolute path of the required destination to download in`
+`$the absolute path of the required destination to download in`  with the absolute path of the desired download distintion.
 You may need to use `sudo` if your docker does not run under the permissions of normal users.
 with the absolute path of directory, you want to download your playlist items in.
 
 ```sh
 ./run.sh $the_absolute_path_of_the_required_distination_to_download_in
 
-```
+or
 
+sudo ./run.sh $the_absolute_path_of_the_required_distination_to_download_in
+```
+Or if you do not want to clone this repo just run the below docker command as it is, and do not forgit to replace `$the absolute path of the required destination to download in` with the absolute path of the desired download distintion.
+```sh
+export DESIRED_PATH=$the_absolute_path_of_the_required_distination_to_download_in
+
+docker run -u `id -u`  -v /dev/shm:/dev/shm  -v $DESIRED_PATH:/yotube-list-downloader/downloads -it kareemelkasaby/youtube-list-downloader:latest
+
+or
+sudo docker run -u `id -u`  -v /dev/shm:/dev/shm  -v $DESIRED_PATH:/yotube-list-downloader/downloads -it kareemelkasaby/youtube-list-downloader:latest
+```
 ## Built With
 
 * NodeJs   - the [youtube-dl](https://www.npmjs.com/package/youtube-dl) package witch download the videos.
