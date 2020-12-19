@@ -42,7 +42,7 @@ with the absolute path of directory, you want to download your playlist items in
 
 ## Built With
 
-* NodeJs   - the [youtube-dl] (https://www.npmjs.com/package/youtube-dl) package with download the videos.
+* NodeJs   - the [youtube-dl](https://www.npmjs.com/package/youtube-dl) package with download the videos.
 * Python3  - to run the bash script through code.
 * Selenium - to open the first link in the playlist and pass it to the Node file by a bash script.
 * Bash     - to link the Python file with the Node file and convert the video from mp4 to mp3 format.
